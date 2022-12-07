@@ -1,0 +1,22 @@
+.app-wrapper {
+  display: grid;
+  grid-template-rows: 1fr 4fr 1fr;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+form {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding-left: 25px;
+}
+
+.form--personal--details {
+  display: flex;
+  flex-direction: column;
+}
