@@ -8,12 +8,15 @@ export default class Content extends Component {
 
     this.state = {
       fullName : '',
-      jobPosition : ''
+      jobPosition : '',
+      mail: '',
+      phone: '',
     }
 
     this.handleName = this.handleName.bind(this)
+    this.handleMail = this.handleMail.bind(this)
     this.handleJobPosition = this.handleJobPosition.bind(this)
-
+    this.handlePhone = this.handlePhone.bind(this)
   }
 
   
@@ -35,17 +38,36 @@ export default class Content extends Component {
     })
   }
 
+  handleMail(e) {
+    this.setState(prev => {
+      return {
+        ...prev,
+        mail : e.target.value
+      }
+    })
+  }
+
+  handlePhone(e) {
+    this.setState(prev => {
+      return {
+        ...prev,
+        phone : e.target.value
+      }
+    })
+  }
+
   render() {
 
     const handleEvents = {
       handleName : this.handleName,
-      handleJobPosition : this.handleJobPosition
+      handleJobPosition : this.handleJobPosition,
+      handleMail : this.handleMail,
+      handlePhone: this.handlePhone
     }
 
     return (
       <div className='app--content'>
         <Form 
-          info={this.state}
           listeners={handleEvents}
         />
         <CV
