@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CV from './CV';
 import Form from './Form';
 
 export default class Content extends Component {
@@ -70,9 +69,7 @@ export default class Content extends Component {
         <Form 
           listeners={handleEvents}
         />
-        <CV
-          info={this.state}
-        />
+
       </div>
     )
   }
