@@ -1,13 +1,21 @@
 import React from "react";
 
 export default class PersonalInfo extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     return (
         <div className="info ">
           <h2>Personal Details</h2>
           <div className="form--field">
             <label>Full Name</label>
-            <input type="text" placeholder="e.g; John Schmoe" />
+            <input type="text" placeholder="e.g; John Schmoe" onChange={ this.props.handlers.setName } />
+          </div>
+          <div className="form--field">
+            <label>Job Title</label>
+            <input type="text" placeholder="e.g; Web Developer" />
           </div>
           <div className="form--field">
             <label>Email</label>

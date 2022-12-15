@@ -4,15 +4,19 @@ import PersonalInfo from './formData/PersonalInfo';
 import WorkExpInfo from './formData/WorkExpInfo';
 
 export default class Form extends React.Component {
-  render() {
+  constructor(props) {
+    super(props)
+  }
 
+  render() {
+    console.log('form', this.props.handlers.submitHandler)
     return (
       <div className='resume--form'>
-        <form>
-          <PersonalInfo />
+        <form onSubmit={ this.props.handlers.submitHandler } >
+          <PersonalInfo handlers={this.props} />
           <EducationInfo />
           <WorkExpInfo />
-          <button>submit</button>
+          <button type='submit' >Generate Resume</button>
         </form>
       </div>
     )
