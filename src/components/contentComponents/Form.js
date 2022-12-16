@@ -9,11 +9,11 @@ export default class Form extends React.Component {
   }
 
   render() {
-    console.log('form', this.props.handlers.submitHandler)
+    console.log('Form Component: ', this.props);
     return (
       <div className='resume--form'>
         <form onSubmit={ this.props.handlers.submitHandler } >
-          <PersonalInfo handlers={this.props} />
+          <PersonalInfo handlers={this.props.handlers} />
           <EducationInfo />
           <WorkExpInfo />
           <button type='submit' >Generate Resume</button>
