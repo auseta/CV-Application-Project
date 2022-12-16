@@ -6,6 +6,7 @@ export default class PersonalInfo extends React.Component {
   }
 
   render() {
+    console.log(this.props.handlers);
     return (
         <div className="info ">
           <h2>Personal Details</h2>
@@ -15,7 +16,7 @@ export default class PersonalInfo extends React.Component {
           </div>
           <div className="form--field">
             <label>Job Title</label>
-            <input type="text" placeholder="e.g; Web Developer" />
+            <input type="text" placeholder="e.g; Web Developer" onChange={ this.props.handlers.setJobTitle } />
           </div>
           <div className="form--field">
             <label>Email</label>
