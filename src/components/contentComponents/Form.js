@@ -13,9 +13,9 @@ export default class Form extends React.Component {
     return (
       <div className='resume--form'>
         <form onSubmit={ this.props.handlers.submitHandler } >
-          <PersonalInfo handlers={this.props.handlers} />
-          <EducationInfo />
-          <WorkExpInfo />
+          <PersonalInfo handlers={ this.props.handlers } />
+          <EducationInfo handlers={ this.props.handlers } />
+          <WorkExpInfo  handlers={ this.props.handlers } />
           <button type='submit' >Generate Resume</button>
         </form>
       </div>

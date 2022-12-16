@@ -51,7 +51,7 @@ export default class Resume extends React.Component {
             <li>{ this.props.info.endOfJob }</li>
           </ul>
           <p>
-            As a memeber of the company i helped to reestructures all the building staff and improves the distribution times over alll the country
+            { this.props.info.jobTasks }
           </p>
         </div>
       </div>

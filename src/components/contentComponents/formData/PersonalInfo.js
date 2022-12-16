@@ -20,15 +20,15 @@ export default class PersonalInfo extends React.Component {
           </div>
           <div className="form--field">
             <label>Email</label>
-            <input type="email" placeholder="e.g; example@gmail.com"/>
+            <input type="email" placeholder="e.g; example@gmail.com" onChange={ this.props.handlers.setMail } />
           </div>
           <div className="form--field">
             <label htmlFor="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="e.g; +111 1234 123456" />
+            <input type="tel" id="phone" placeholder="e.g; +111 1234 123456" onChange={this.props.handlers.setPhoneNumber} />
           </div>
           <div className="form--field">
             <label>Address</label>
-            <input type="text" placeholder="e.g; Fake Street 123" />
+            <input type="text" placeholder="e.g; Fake Street 123" onChange={this.props.handlers.setAddress} />
           </div>
         </div>
     );
