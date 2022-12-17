@@ -184,7 +184,7 @@ export default class Content extends React.Component {
     };
 
     return (
-      <div className="app-wrapper">
+      <div className="app--wrapper">
         <Form handlers={eventHandlers} />
         <Resume info={this.state.resumeData} />
       </div>
