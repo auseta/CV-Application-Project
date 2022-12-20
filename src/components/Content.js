@@ -41,126 +41,43 @@ export default class Content extends React.Component {
       },
     };
 
-    this.setName = this.setName.bind(this)
-    this.setJobTitle = this.setJobTitle.bind(this)
-    this.submitHandler = this.submitHandler.bind(this)
-    this.setMail = this.setMail.bind(this)
-    this.setPhoneNumber = this.setPhoneNumber.bind(this)
-    this.setAddress = this.setAddress.bind(this)
-    this.setSchool = this.setSchool.bind(this)
-    this.setStudyTitle = this.setStudyTitle.bind(this)
-    this.setStartOfStudies = this.setStartOfStudies.bind(this)
-    this.setEndOfStudies = this.setEndOfStudies.bind(this)
-    this.setCompanyName = this.setCompanyName.bind(this)
-    this.setJobPosition = this.setJobPosition.bind(this)
-    this.setStartOfJob = this.setStartOfJob.bind(this)
-    this.setEndOfJob = this.setEndOfJob.bind(this)
-    this.setJobTasks = this.setJobTasks.bind(this)
+    this.setName = (e) => this.setState(prev => ({ ...prev, newData : { ...prev.newData, fullName : e.target.value} }))
+    this.setJobTitle = (e) => this.setState(prev => ({ ...prev, newData : { ...prev.newData, jobTitle : e.target.value } }))
+    this.setMail = (e) => this.setState(prev => ({ ...prev, newData : { ...prev.newData, email : e.target.value}  }))
+    this.setPhoneNumber = (e) => this.setState(prev => ({ ...prev, newData : { ...prev.newData, phoneNumber : e.target.value } }))
+    this.setSchool = (e) => this.setState(prev => ({ ...prev, newData : { ...prev.newData, school : e.target.value } }))
+    this.setAddress = (e) => this.setState(prev => ({ ...prev, newData: { ...prev.newData, address : e.target.value } }))
+    this.setStudyTitle = (e) => this.setState(prev => ({ ...prev, newData: { ...prev.newData, studyTitle : e.target.value }  }))
+    this.setStartOfStudies = (e) => this.setState(prev => ({ ...prev, newData: { ...prev.newData, startOfStudies : format( parseISO(e.target.value) , 'MMM dd, yyyy') } }))
+    this.setEndOfStudies = (e) => this.setState(prev => ({ ...prev, newData: { ...prev.newData, endOfStudies : format(parseISO(e.target.value), 'MMM dd, yyyy') } }))
+    this.setCompanyName = (e) => this.setState(prev => ({ ...prev, newData : { ...prev.newData, companyName: e.target.value } }))
+    this.setJobPosition = (e) => this.setState(prev => ({ ...prev, newData : { ...prev.newData, jobPosition : e.target.value } }))
+    this.setStartOfJob = (e) => this.setState(prev => ({ ...prev, newData : { ...prev.newData, startOfJob : format(parseISO(e.target.value), 'MMM dd, yyyy' ) } }))
+    this.setEndOfJob = (e) => this.setState(prev => ({ ...prev, newData : { ...prev.newData, endOfJob : format(parseISO(e.target.value), 'MMM dd, yyyy')  } }))
+    this.setJobTasks = (e) => this.setState(prev => ({ ...prev, newData : { ...prev.newData, jobTasks : e.target.value } }))
+    this.submitHandler = (e) => {
+      e.preventDefault()
+      this.setState(prev => ({
+        ...prev,
+        resumeData : {
+          fullName: prev.newData.fullName || 'Joe Schmoe' ,
+          jobTitle: prev.newData.jobTitle || 'Web Developer' ,
+          email: prev.newData.email || "johnschmoe97@gmail.com",
+          phoneNumber: prev.newData.phoneNumber || "+11 1234 567899",
+          address: prev.newData.address || "Fake Street 123",
+          school: prev.newData.school || "Massachusetts Institute of Technology",
+          studyTitle: prev.newData.studyTitle || "Systems engineering",
+          startOfStudies:  prev.newData.startOfStudies || 'Jan 13, 2010',
+          endOfStudies: prev.newData.endOfStudies || "Dec 18, 2015",
+          companyName:  prev.newData.companyName || "Awesome International Systems",
+          jobPosition: prev.newData.jobPosition || "Web Developer",
+          startOfJob: prev.newData.startOfJob || "Feb 23, 2017",
+          endOfJob: prev.newData.endOfJob || "Nov 10, 2022",
+          jobTasks : prev.newData.jobTasks || "As a memeber of the company i helped to reestructures all the building staff and improves the distribution times over alll the country."
+        }
+      }))
+    }
 
-  }
-
-  setName(e) {
-    this.setState(prev => ({...prev, newData : { ...prev.newData, fullName : e.target.value}}))
-  }
-
-  setJobTitle(e) {
-    this.setState(prev => ({...prev, newData : { ...prev.newData, jobTitle : e.target.value }}))
-  }
-
-  setMail(e) {
-    this.setState(prev => ({...prev, newData : { ...prev.newData, email : e.target.value }}))
-  }
-
-  setPhoneNumber(e) {
-    this.setState(prev => ({...prev, newData : { ...prev.newData, phoneNumber : e.target.value }}))
-  }
-
-  setSchool(e) {
-    this.setState(prev => ({...prev, newData : { ...prev.newData, school : e.target.value }}))
-  }
-
-  setAddress(e) {
-    this.setState(prev => ({...prev, newData : { ...prev.newData, address : e.target.value }}))
-  }
-
-  setStudyTitle(e) {
-    this.setState(prev => ({...prev, newData : { ...prev.newData, studyTitle : e.target.value }}))
-  }
-
-  setStartOfStudies(e) {  
-    const date = e.target.value
-    this.setState(prev => ({ 
-      ...prev,
-      newData : { ...prev.newData, startOfStudies : format( parseISO(date) , 'MMM dd, yyyy') }
-     }))
-  }
-
-  setEndOfStudies(e) {
-    const date = e.target.value;
-    this.setState(prev => ({
-      ...prev,
-      newData : { ...prev.newData, endOfStudies : format(parseISO(date), 'MMM dd, yyyy') }
-    }))
-  }
-
-  setCompanyName(e) {
-    this.setState(prev => ({ 
-      ...prev,
-      newData: { ...prev.newData, companyName: e.target.value }
-     }))
-  }
-
-  setJobPosition(e) {
-    this.setState(prev => ({ 
-      ...prev,
-      newData: { ...prev.newData, jobPosition : e.target.value }
-     }))
-  }
-
-  setStartOfJob(e) {
-    const date = e.target.value;
-    this.setState(prev => ({ 
-      ...prev,
-      newData : { ...prev.newData, startOfJob : format(parseISO(date), 'MMM dd, yyyy' ) }
-     }))
-  }
-
-  setEndOfJob(e) {
-    const date = e.target.value;
-    this.setState(prev => ({ 
-      ...prev,
-      newData : { ...prev.newData, endOfJob : format(parseISO(date), 'MMM dd, yyyy' ) }
-     }))
-  }
-
-  setJobTasks(e) {
-    this.setState(prev => ({ 
-      ...prev,
-      newData : { ...prev.newData, jobTasks : e.target.value }
-     }))
-  }
-
-  submitHandler(e) {
-    e.preventDefault();
-    this.setState(prev => ({
-      ...prev,
-      resumeData : {
-        fullName: prev.newData.fullName || 'Joe Schmoe' ,
-        jobTitle: prev.newData.jobTitle || 'Web Developer' ,
-        email: prev.newData.email || "johnschmoe97@gmail.com",
-        phoneNumber: prev.newData.phoneNumber || "+11 1234 567899",
-        address: prev.newData.address || "Fake Street 123",
-        school: prev.newData.school || "Massachusetts Institute of Technology",
-        studyTitle: prev.newData.studyTitle || "Systems engineering",
-        startOfStudies:  prev.newData.startOfStudies || 'Jan 13, 2010',
-        endOfStudies: prev.newData.endOfStudies || "Dec 18, 2015",
-        companyName:  prev.newData.companyName || "Awesome International Systems",
-        jobPosition: prev.newData.jobPosition || "Web Developer",
-        startOfJob: prev.newData.startOfJob || "Feb 23, 2017",
-        endOfJob: prev.newData.endOfJob || "Nov 10, 2022",
-        jobTasks : prev.newData.jobTasks || "As a memeber of the company i helped to reestructures all the building staff and improves the distribution times over alll the country."
-      }
-    }))
   }
 
   render() {
