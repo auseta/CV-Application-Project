@@ -1,60 +1,58 @@
 import React from "react";
 
-export default class Resume extends React.Component {
+const Resume = ({ info }) => {
 
-  render() {
-    return (
-      <div className="resume">
-        <div className="resume--tile resume--tile--one">
-          <div>
-            <h2>{this.props.info.fullName}</h2>
-            <p>{this.props.info.jobTitle}</p>
-          </div>
-          <ul>
-            <li>
-              <i className="fas fa-envelope"></i>
-              {this.props.info.email}
-            </li>
-            <li>
-              <i className="fas fa-phone"></i>
-              {this.props.info.phoneNumber}
-            </li>
-            <li>
-              <i className="fas fa-map-marker-alt"></i>
-              {this.props.info.address}
-            </li>
-          </ul>
+  return (
+    <div className="resume">
+      <div className="resume--tile resume--tile--one">
+        <div>
+          <h2>{ info.fullName }</h2>
+          <p>{ info.jobTitle }</p>
         </div>
-        <div className="resume--tile resume--tile--two">
-          <h2>Education</h2>
-          <ul>
-            <li className="li-bullet">{ this.props.info.school }</li>
-            &#8212;
-            <li>{ this.props.info.studyTitle }</li>
-          </ul>
-          <ul>
-            <li>{ this.props.info.startOfStudies }</li>
-            &#8212;
-            <li>{ this.props.info.endOfStudies }</li>
-          </ul>
-        </div>
-        <div className="resume--tile resume--tile--three">
-          <h2>Work Experience</h2>
-          <ul>
-            <li className="li-bullet" >{ this.props.info.companyName }</li>
-            &#8212;
-            <li>{ this.props.info.jobPosition }</li>
-          </ul>
-          <ul>
-            <li>{ this.props.info.startOfJob }</li>
-            &#8212;
-            <li>{ this.props.info.endOfJob }</li>
-          </ul>
-          <p>
-            { this.props.info.jobTasks }
-          </p>
-        </div>
+        <ul>
+          <li>
+           <i className="fas fa-envelope"></i>
+            { info.email }
+          </li>
+          <li>
+            <i className="fas fa-phone"></i>
+            { info.phoneNumber }
+          </li>
+          <li>
+            <i className="fas fa-map-marker-alt"></i>
+            { info.address }
+          </li>
+        </ul>
       </div>
-    );
-  }
-}
+      <div className="resume--tile resume--tile--two">
+        <h2>Education</h2>
+        <ul>
+          <li className="li-bullet">{ info.school }</li>
+          &#8212;
+          <li>{ info.studyTitle }</li>
+        </ul>
+        <ul>
+          <li>{ info.startOfStudies }</li>
+          &#8212;
+          <li>{ info.endOfStudies }</li>
+        </ul>
+      </div>
+      <div className="resume--tile resume--tile--three">
+        <h2>Work Experience</h2>
+        <ul>
+          <li className="li-bullet">{ info.companyName }</li>
+          &#8212;
+          <li>{ info.jobPosition }</li>
+        </ul>
+        <ul>
+          <li>{ info.startOfJob }</li>
+          &#8212;
+          <li>{ info.endOfJob }</li>
+        </ul>
+        <p>{ info.jobTasks }</p>
+      </div>
+    </div>
+  );
+};
+
+export default Resume
